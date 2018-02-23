@@ -1,6 +1,10 @@
 class SnippetsController < ApplicationController
   before_action :set_snippet, only: :show
   
+  def index
+    @snippets = Snippet.where('value ILIKE ?', "%#{params[:value].present? ? params[:value] : ''}%")
+  end
+  
   def show
     
   end

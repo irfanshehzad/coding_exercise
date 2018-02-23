@@ -1,0 +1,25 @@
+<% if @snippets.size > 0 %>
+  <table>
+    <tbody>
+      <%@snippets.each do |snippet|%>
+        <tr>
+          <td>
+            <%unless snippet.is_private?%>
+              <%= link_to "#{sanitize(truncate(snippet.value, length: 5))}", snippet_path(snippet) %>
+            <%else%>
+              <%= sanitize(truncate(snippet.value, length: 5)) %>
+            <%end%>
+          </td>
+          <td>
+            <%= snippet.is_private %>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+<%else%>
+  <h2>No result found</h2>
+<%end%>
+  <%= link_to "Create New Snippet", new_snippet_path %>
+  <%= link_to "Home Page", root_path %>
