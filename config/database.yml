@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+  username: postgres
+  password: 123
+development:
+  <<: *default
+  database: coding_exercise
+test:
+  <<: *default
+  database: coding_exercise_test  

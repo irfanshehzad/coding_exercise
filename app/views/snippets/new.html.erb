@@ -1,0 +1,6 @@
+<%= form_for @snippet do |f| %>
+<%= f.object.errors.full_messages.join(',') %>
+  <%= f.text_area :value %>
+  <%= f.check_box :is_private %>
+  <%= f.submit %>
+<%end%>

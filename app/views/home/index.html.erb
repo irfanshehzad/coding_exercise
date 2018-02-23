@@ -1,0 +1,16 @@
+<h2>Home Page</h2>
+<table>
+  <tbody>
+    <%@snippets.each do |snippet|%>
+      <tr>
+        <td>
+          <%= sanitize(truncate(snippet.value, length: 5)) %>
+        </td>
+        <td>
+          <%= snippet.is_private %>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+<%= link_to "Create New Snippet", new_snippet_path %>
